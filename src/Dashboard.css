@@ -1,0 +1,345 @@
+/* Agriculture-themed CSS for Dashboard */
+
+/* Import Google Fonts for better typography */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Root variables for agriculture color palette */
+:root {
+  --primary-green: #2d5016;
+  --secondary-green: #4a7c59;
+  --accent-green: #6b8e23;
+  --light-green: #90ee90;
+  --earth-brown: #8b4513;
+  --warm-yellow: #ffd700;
+  --sky-blue: #87ceeb;
+  --cream-white: #faf0e6;
+  --dark-soil: #3e2723;
+  --harvest-orange: #ff8c00;
+}
+
+/* Global styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #e8f5e8 0%, #f0f8e8 100%);
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Add subtle background pattern */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 165, 0, 0.1) 0%, transparent 50%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Container styling */
+.container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Header styling */
+.container h1 {
+  color: var(--primary-green);
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem !important;
+  position: relative;
+}
+
+.container h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-green), var(--warm-yellow));
+  border-radius: 2px;
+}
+
+/* Weather card styling */
+.card {
+  background: linear-gradient(135deg, var(--sky-blue) 0%, #b3d9ff 100%);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--warm-yellow), var(--harvest-orange));
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  color: var(--dark-soil);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  color: var(--primary-green);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+/* Button styling */
+.btn {
+  border-radius: 12px;
+  font-weight: 500;
+  padding: 12px 20px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+/* Primary buttons (Admin) */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+  border-color: var(--primary-green);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--secondary-green) 0%, var(--accent-green) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(45, 80, 22, 0.3);
+}
+
+/* Success buttons */
+.btn-success {
+  background: linear-gradient(135deg, var(--accent-green) 0%, var(--light-green) 100%);
+  border-color: var(--accent-green);
+  color: var(--dark-soil);
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, var(--secondary-green) 0%, var(--accent-green) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(107, 142, 35, 0.3);
+  color: white;
+}
+
+/* Outline buttons for navigation */
+.btn-outline-primary {
+  border-color: var(--primary-green);
+  color: var(--primary-green);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.btn-outline-primary:hover {
+  background: var(--primary-green);
+  border-color: var(--primary-green);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(45, 80, 22, 0.3);
+}
+
+.btn-outline-success {
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.btn-outline-success:hover {
+  background: var(--accent-green);
+  border-color: var(--accent-green);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(107, 142, 35, 0.3);
+}
+
+.btn-outline-warning {
+  border-color: var(--warm-yellow);
+  color: #b8860b;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.btn-outline-warning:hover {
+  background: var(--warm-yellow);
+  border-color: var(--warm-yellow);
+  color: var(--dark-soil);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+}
+
+.btn-outline-info {
+  border-color: var(--sky-blue);
+  color: #0c7a89;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.btn-outline-info:hover {
+  background: var(--sky-blue);
+  border-color: var(--sky-blue);
+  color: var(--dark-soil);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(135, 206, 235, 0.4);
+}
+
+.btn-outline-secondary {
+  border-color: var(--earth-brown);
+  color: var(--earth-brown);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.btn-outline-secondary:hover {
+  background: var(--earth-brown);
+  border-color: var(--earth-brown);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(139, 69, 19, 0.3);
+}
+
+.btn-outline-danger {
+  border-color: #dc3545;
+  color: #dc3545;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.btn-outline-danger:hover {
+  background: #dc3545;
+  border-color: #dc3545;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(220, 53, 69, 0.3);
+}
+
+/* Logout button */
+.btn-danger {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  border-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(220, 53, 69, 0.3);
+}
+
+/* Alert styling */
+.alert-danger {
+  background: linear-gradient(135deg, #f8d7da 0%, #f1b0b7 100%);
+  border: 1px solid #f5c2c7;
+  border-radius: 12px;
+  color: #842029;
+  font-weight: 500;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .container {
+    margin: 10px;
+    border-radius: 15px;
+    padding: 1.5rem !important;
+  }
+  
+  .container h1 {
+    font-size: 1.8rem;
+  }
+  
+  .btn {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+  
+  .card {
+    margin-bottom: 2rem !important;
+  }
+}
+
+/* Add subtle animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container > * {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.container > *:nth-child(2) { animation-delay: 0.1s; }
+.container > *:nth-child(3) { animation-delay: 0.2s; }
+.container > *:nth-child(4) { animation-delay: 0.3s; }
+.container > *:nth-child(5) { animation-delay: 0.4s; }
+
+/* Add hover effects for the main navigation grid */
+.row.text-center .col-6,
+.row.text-center .col-md-4 {
+  transition: transform 0.3s ease;
+}
+
+.row.text-center .col-6:hover,
+.row.text-center .col-md-4:hover {
+  transform: scale(1.02);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-green);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-green);
+}

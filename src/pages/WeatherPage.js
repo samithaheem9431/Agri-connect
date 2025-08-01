@@ -41,7 +41,7 @@ const WeatherPage = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <h2>🌍 Weather at Your Location</h2>
 
       {loading && <p>Fetching weather data...</p>}
@@ -60,7 +60,7 @@ const WeatherPage = () => {
           <p>🌥 Condition: {weather.current.condition.text}</p>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

@@ -28,7 +28,6 @@ const App = () => {
       <Route path="/education" element={<EducationPage />} />
       <Route path="/admin/upload-crop" element={<AdminCropUpload />} />
       <Route path="/admin/upload-scheme" element={<AdminSchemeUpload />} />
-
     </Routes>
   );
 };

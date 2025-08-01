@@ -1,70 +1,231 @@
-# Getting Started with Create React App
+# 🌾 AgriConnect - AI-Powered Agriculture Assistant
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A comprehensive web application that provides AI-powered assistance for agricultural queries, crop management, disease detection, and farming best practices.
 
-## Available Scripts
+## ✨ Features
 
-In the project directory, you can run:
+### 🤖 AI Chatbot Assistant
+- **Multi-modal Input Support**: Text, voice, and file uploads
+- **Agriculture-Specific Knowledge**: Specialized responses for farming queries
+- **Real-time Chat Interface**: Professional chat UI with typing indicators
+- **File Analysis**: Support for images, PDFs, and documents
+- **Voice Recognition**: Speech-to-text functionality for hands-free operation
 
-### `npm start`
+### 🌱 Agricultural Expertise
+- **Crop Management**: Planting guides, care instructions, and harvesting tips
+- **Disease Detection**: Identification and treatment recommendations
+- **Soil Management**: pH testing, fertilization, and soil health advice
+- **Weather Adaptation**: Drought, flooding, frost, and heat management
+- **Pest Control**: Integrated pest management strategies
+- **Irrigation Tips**: Water management and efficiency techniques
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 📱 Modern User Interface
+- **Responsive Design**: Works on desktop, tablet, and mobile devices
+- **Professional Styling**: Modern gradient backgrounds and smooth animations
+- **Chat History**: Persistent conversation tracking
+- **File Preview**: Visual feedback for uploaded files
+- **Voice Feedback**: Real-time voice input display
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Quick Start
 
-### `npm test`
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
+- Firebase account (for data storage)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation
 
-### `npm run build`
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd agri_connect
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Install frontend dependencies**
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Install backend dependencies**
+   ```bash
+   cd backend
+   npm install
+   cd ..
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. **Configure Firebase**
+   - Create a Firebase project
+   - Enable Firestore and Storage
+   - Add your Firebase config to `src/firebase.js`
+   - Add service account key to `backend/serviceAccountKey.json`
 
-### `npm run eject`
+5. **Set up environment variables**
+   ```bash
+   # Create .env file in backend directory
+   PORT=5000
+   NODE_ENV=development
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+6. **Start the application**
+   ```bash
+   # Start both frontend and backend
+   npm run both
+   
+   # Or start separately:
+   # Frontend: npm start
+   # Backend: cd backend && npm start
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🛠️ Technology Stack
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Frontend
+- **React 19**: Modern UI framework
+- **React Speech Recognition**: Voice input functionality
+- **Axios**: HTTP client for API communication
+- **Firebase**: Real-time database and file storage
+- **CSS3**: Custom styling with animations and responsive design
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Backend
+- **Node.js**: Server runtime
+- **Express.js**: Web framework
+- **Multer**: File upload handling
+- **Firebase Admin**: Server-side Firebase integration
+- **CORS**: Cross-origin resource sharing
 
-## Learn More
+## 📋 API Endpoints
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### POST `/api/query`
+Handles user queries with support for text, voice, and file inputs.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Request:**
+```javascript
+// Text query
+{
+  "text": "How to grow wheat?"
+}
 
-### Code Splitting
+// File upload (multipart/form-data)
+{
+  "text": "What's wrong with this plant?",
+  "file": [image/document file]
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Response:**
+```javascript
+{
+  "success": true,
+  "response": "🌱 Wheat Planting Guide: Plant wheat in fall...",
+  "timestamp": "2024-01-01T12:00:00.000Z"
+}
+```
 
-### Analyzing the Bundle Size
+### GET `/api/query/health`
+Health check endpoint for the AI assistant.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🌾 Agricultural Knowledge Base
 
-### Making a Progressive Web App
+The AI assistant includes comprehensive knowledge about:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Crops
+- **Wheat**: Planting, care, diseases, harvesting
+- **Corn**: Growth requirements, pest management
+- **Rice**: Water management, disease control
+- **Soybeans**: Care instructions, harvesting tips
 
-### Advanced Configuration
+### Diseases
+- **Rust**: Fungal disease management
+- **Blight**: Plant tissue damage control
+- **Mildew**: Air circulation and fungicide use
+- **Nematodes**: Root damage prevention
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Soil Management
+- **pH Testing**: Optimal ranges for different crops
+- **Nutrient Management**: Nitrogen, phosphorus, potassium
+- **Soil Health**: Organic matter and structure
 
-### Deployment
+### Weather Adaptation
+- **Drought Management**: Water conservation techniques
+- **Flooding**: Drainage and raised bed systems
+- **Frost Protection**: Row covers and timing
+- **Heat Stress**: Shade and irrigation strategies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🎯 Usage Examples
 
-### `npm run build` fails to minify
+### Text Queries
+```
+"How to plant wheat?"
+"What causes rust disease?"
+"Best soil pH for corn?"
+"How to manage drought conditions?"
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Voice Input
+- Click the microphone button
+- Speak your agricultural question
+- The AI will process and respond
+
+### File Upload
+- Upload images of crops or diseases
+- Submit PDF documents for analysis
+- Get specific recommendations based on content
+
+## 🔧 Configuration
+
+### Firebase Setup
+1. Create a new Firebase project
+2. Enable Firestore Database
+3. Enable Storage
+4. Generate service account key
+5. Update configuration files
+
+### Environment Variables
+```bash
+# Backend .env
+PORT=5000
+NODE_ENV=development
+FIREBASE_PROJECT_ID=your-project-id
+FIREBASE_PRIVATE_KEY=your-private-key
+FIREBASE_CLIENT_EMAIL=your-client-email
+```
+
+## 📱 Browser Compatibility
+
+- Chrome (recommended for voice features)
+- Firefox
+- Safari
+- Edge
+
+**Note**: Voice recognition requires HTTPS in production.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🆘 Support
+
+For support and questions:
+- Create an issue in the repository
+- Contact the development team
+- Check the documentation
+
+## 🔮 Future Enhancements
+
+- **Machine Learning Integration**: Advanced crop disease detection
+- **Weather API Integration**: Real-time weather-based recommendations
+- **Multi-language Support**: Localized agricultural advice
+- **Mobile App**: Native mobile application
+- **Expert Consultation**: Connect with agricultural experts
+- **Market Analysis**: Crop pricing and market trends
+
+---
+
+**Built with ❤️ for the agricultural community**
